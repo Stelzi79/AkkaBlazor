@@ -18,7 +18,6 @@ namespace SeedNode
             IActorRef localecho = system.ActorOf<EchoActor>("SeedNodeEchoActor");
             //localecho.Tell("Actor system started and EchoActor added!");
             Console.ReadLine();
-
         }
     }
 }
