@@ -7,10 +7,32 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    int currentCount = 0;
 
-    void IncrementCount()
-    {
-        currentCount++;
-    }
+
+	int currentCount = 0;
+
+	void IncrementCount()
+	{
+		Console.WriteLine("Create SeedNode ...");
+		//string seedNodeConfig = File.ReadAllText("akkanode.conf");
+		string seedNodeConfig = @"akka {
+actor.provider = cluster
+remote {
+dot-netty.tcp {
+port = 0 #let os pick random port
+hostname = localhost
+}
+}
+cluster {
+seed-nodes = [\""akka.tcp://AkkaBlazorCluster@localhost:8085\""]
+}
+}";
+		Config config = ConfigurationFactory.ParseString(seedNodeConfig);
+
+		//ActorSystem system = ActorSystem.Create("AkkaBlazorCluster", config);
+
+		//services.AddSingleton(system);
+
+		currentCount++;
+	}
 }

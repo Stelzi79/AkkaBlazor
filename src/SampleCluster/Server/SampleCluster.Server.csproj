@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Akka.Cluster" Version="1.4.0-beta596" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Server" Version="3.0.0-preview9.19424.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview9.19424.4" />
   </ItemGroup>
@@ -13,6 +14,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Client\SampleCluster.Client.csproj" />
     <ProjectReference Include="..\Shared\SampleCluster.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="akkanode.conf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
